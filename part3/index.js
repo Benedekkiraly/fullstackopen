@@ -44,11 +44,6 @@ app.get('/api/info', (request,response) => {
     response.send('<p> Currently there are ' + persons.length +' persons in the phonebook!</p><p>'+new Date().toISOString()+'</p>')
 })
 
-  
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
-  })
-
   app.get('/api/persons/:id', (request, response) => {
     const id = Number(request.params.id)
     const person = persons.find(person => person.id === id)
@@ -112,7 +107,7 @@ app.get('/api/info', (request,response) => {
   app.use(unknownEndpoint)
   app.use(requestLogger)
 
-const PORT = process.env.PORT || 3001
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+  const PORT = process.env.PORT || 3001
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+  })
